@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Challenge</title>
+</head>
+<body>
+    <script>
+
+let myJSON = '{ "name":"Mpho", "surname": "Beki", "interests": ["hockey","volleyball","tennis"],"DOB": "1982/04/17","no.": "082.909.9182" }';
+
+let myJSObj = JSON.parse(myJSON, function (key, value) {
+  if (key == "DOB") {
+    return new Date(value);
+    }
+    else if (key === "no.") {return parseFloat(value)} 
+  
+    else {
+     return value;}
+   });
+
+console.log(myJSObj);
+
+
+    </script>
+</body>
+</html>
